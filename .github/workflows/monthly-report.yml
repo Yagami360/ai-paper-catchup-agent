@@ -2,9 +2,9 @@ name: Monthly Report
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   # 毎月１日 9:00 (JST)
-  #   - cron: '0 0 1 * *'
+  schedule:
+    # 毎月１日 9:00 (JST)
+    - cron: '0 0 1 * *'
 
 jobs:
   ai-paper-catchup:

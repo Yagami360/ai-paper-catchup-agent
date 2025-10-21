@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     enabled_mcp_servers: str = os.getenv("ENABLED_MCP_SERVERS", "")
 
     # プロンプト設定
-    news_count: int = int(os.getenv("NEWS_COUNT", "20"))
+    news_count: int = int(os.getenv("NEWS_COUNT", "10"))
 
     model_config = {"env_file": ".env", "extra": "ignore"}
 

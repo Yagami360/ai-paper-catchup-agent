@@ -8,7 +8,7 @@
 [![Claude](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/claude.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/claude.yml)
 [![Gemini CLI](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/gemini.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/gemini.yml)
 
-最新AI論文の最新/週次/月次レポート、および特定論文のレポートを GitHub Issue で自動作成する AI Agent です。
+**arXiv、Papers with Code、Hugging Face Papers などの学術論文サイトから**最新AI論文を自動調査し、最新/週次/月次レポート、および特定論文の詳細レポートを GitHub Issue で自動作成する AI Agent です。
 
 - [📅 最新レポート](https://github.com/Yagami360/ai-paper-catchup-agent/issues?q=is%3Aissue%20label%3Areport)
 - [📊 週次レポート](https://github.com/Yagami360/ai-paper-catchup-agent/issues?q=is%3Aissue%20label%3Aweekly-report)

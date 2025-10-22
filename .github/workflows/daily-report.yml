@@ -1,7 +1,7 @@
 name: Daily Report
 
 on:
-  workflow_dispatch:
+  # workflow_dispatch:
   # schedule:
   #   # 毎日 9:00 (JST)
   #   - cron: '0 0 * * *'

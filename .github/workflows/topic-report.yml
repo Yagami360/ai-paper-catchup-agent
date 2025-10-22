@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       topic:
-        description: 'レポート対象のトピック名（例: AI Agent, Vision-Language Models etc...）'
+        description: 'レポート対象の論文名（例: Attention Is All You Need, etc...）'
         required: true
         type: string
 

@@ -74,8 +74,11 @@ make setup
 # ENABLED_MCP_SERVERS=github,huggingface
 # HF_TOKEN=your_huggingface_token_here
 # MAX_TOKENS=10000
-# NEWS_COUNT=20
-# DEEP_RESEARCH=false  # Deep Research を有効化する場合は true（Gemini モデルのみ対応）
+# NEWS_COUNT=10
+# NEWS_COUNT_REPORT=10
+# NEWS_COUNT_WEEKLY_REPORT=5
+# NEWS_COUNT_MONTHLY_REPORT=10
+# NEWS_COUNT_TEST_REPORT=1
 ```
 
 #### 3️⃣ 実行

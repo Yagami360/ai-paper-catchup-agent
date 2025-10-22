@@ -26,7 +26,6 @@
         - `MODEL_NAME`: 利用するモデル名<br>
             現時点では Claude モデル（`claude-sonnet-4-20250514`, `claude-opus-4-1-20250805` など）と Gemini モデル（`gemini-2.5-flash`, `gemini-2.5-pro` など）をサポートしています
         - `ENABLED_MCP_SERVERS`: 有効にするMCPサーバー（例: `github,huggingface`）<br>
-        - `DEEP_RESEARCH`: Deep Research を有効化する場合は `true` を設定（Gemini モデルのみ対応、デフォルト: `false`）<br>
 
     - Secrets<br>
         - `ANTHROPIC_API_KEY`: Claude モデルを使用する場合<br>

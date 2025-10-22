@@ -41,7 +41,7 @@
     - [📊 週次レポートのワークフロー](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/weekly-report.yml)
     - [📈 月次レポートのワークフロー](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/monthly-report.yml)
     - [🎯 論文別レポートのワークフロー](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/topic-report.yml)
-        - `Run workflow` をクリックして、調査したいトピック名を入力してください（例: `AI Agent`, `Vision-Language Models`, `PhysicalAI`）
+        - `Run workflow` をクリックして、調査したい論文名を入力してください（例: `Attention Is All You Need`）
 
 ### 💻 ローカル環境で動かす場合
 
@@ -93,7 +93,7 @@ make run-weekly
 make run-monthly
 
 # 🎯 論文別レポート作成
-make run-topic TOPIC="AI Agent"
+make run-topic TOPIC="Attention Is All You Need"
 ```
 
 ### 🤖 レポート内容の質疑応答する
@@ -122,7 +122,7 @@ Issue や PR のコメントで `@gemini-cli` とメンションすると、Gemi
 @gemini-cli 今後のトレンドについて教えてください
 ```
 
-> **Note**: 
+> **Note**:
 > - Claude は `@claude` メンション、Gemini は `@gemini-cli` メンションで呼び出します
 > - どちらも Issue コメントおよび PR コメントで利用可能です
 > - レポート Issue の内容を理解した上で回答します
@@ -138,7 +138,7 @@ Issue や PR のコメントで `@gemini-cli` とメンションすると、Gemi
 | `make run` | 📰 最新レポート作成 |
 | `make run-weekly` | 📊 週次レポート生成 |
 | `make run-monthly` | 📈 月次レポート生成 |
-| `make run-topic TOPIC="トピック名"` | 🎯 トピック別レポート生成 |
+| `make run-topic TOPIC="論文名"` | 🎯 論文別レポート生成 |
 | `make test` | 🧪 テストを実行 |
 | `make lint` | 🔍 コードのリンティング |
 | `make format` | ✨ コードのフォーマット |

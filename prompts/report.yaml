@@ -73,6 +73,9 @@ key_urls:
         - https://github.com/topics/research-paper
         - https://github.com/topics/arxiv
         - https://github.com/topics/machine-learning-research
+      - GitHub
+        - https://github.com/dair-ai/ML-Papers-of-the-Week
+        - https://github.com/masamasa59/ai-agent-papers
     - **補足情報源**（論文に関する情報がある場合のみ）:
       - AI技術ニュース（論文発表ニュース）
         - https://techcrunch.com/category/artificial-intelligence
@@ -425,8 +428,37 @@ topic_report:
   title: "特定論文に関するレポート"
   prompt: |
     「{topic}」に関する論文詳細を調査する専門家です。**Web Search機能・WebFetch機能・MCPサーバーなどを活用して**、論文詳細を包括的に調査し、レポートを作成してください。
+    「{topic}」が特定の論文名でない場合は、「{topic}」に関連する論文リストを調査してください。
 
     ## 調査手順
+
+    1. **以下の情報源から「{topic}」に関連する学術論文を収集**（優先度順）：
+
+      {key_urls}
+
+       - 上記の【最優先】学術論文サイトで{week_period}の論文を必ず確認してください
+       - 論文タイトル（原題）、著者、所属機関、公開日、論文URL（arXiv等）を必ず記録
+       - 実装コードのURL（GitHub等）も確認してください
+
+    2. **以下キーワードに関連する論文を調査**：
+
+      {key_words}
+
+       - 上記キーワードで「{topic}」に関連する論文を検索
+       - 論文の技術的な貢献と先行研究との違いを確認
+
+    3. **MCPサーバーを活用**（利用可能な場合）：
+
+      {mcp_tools}
+
+    ## レポート作成の注意事項
+    - **学術論文のみ**を対象とし、一般的なニュース記事やブログは除外してください
+    -「{topic}」に関連する論文のみを対象としてください
+    -「{topic}」が特定の論文名でない場合は、「{topic}」に関連する論文リストを調査してください。
+    - 各論文について論文タイトル（原題）、著者、所属機関、公開日、論文URL、実装コードURLを含めてください
+
+    ## レポート形式
+    以下の Markdown 形式で詳細なレポートを作成してください：
 
     ## 0. 論文情報・リンク
     - 論文リンク:

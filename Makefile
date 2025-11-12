@@ -25,7 +25,6 @@ run-monthly: install
 	uv run python -m src.main monthly
 
 # Run AI Agent for topic report
-# Usage: make run-topic TOPIC="RAG"
 TOPIC ?= ""
 run-topic: install
 	@if [ -z "$(TOPIC)" ]; then \
@@ -34,6 +33,16 @@ run-topic: install
 	fi
 	@echo "Running topic report for: $(TOPIC)"
 	uv run python -m src.main topic --topic "$(TOPIC)"
+
+# Run AI Agent for topic survey report
+TOPIC ?= ""
+run-topic-survey: install
+	@if [ -z "$(TOPIC)" ]; then \
+		echo "Error: Please specify TOPIC. Usage: make run-topic-survey TOPIC=\"your topic\""; \
+		exit 1; \
+	fi
+	@echo "Running topic survey report for: $(TOPIC)"
+	uv run python -m src.main topic-survey --topic "$(TOPIC)"
 
 # Run AI Agent with test mode
 # TEST_MODEL ?= claude-3-5-haiku-20241022

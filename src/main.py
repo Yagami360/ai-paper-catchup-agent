@@ -31,8 +31,8 @@ def main() -> None:
     parser.add_argument(
         "mode",
         nargs="?",
-        choices=["weekly", "monthly", "topic", "test"],
-        help="レポートモード (weekly: 週次, monthly: 月次, topic: トピック別, test: テスト。指定なし: 最新)",
+        choices=["weekly", "monthly", "topic", "topic-survey", "test"],
+        help="レポートモード (weekly: 週次, monthly: 月次, topic: トピック別, topic-survey: トピックサーベイ, test: テスト。指定なし: 最新)",
     )
     parser.add_argument(
         "--model",
@@ -96,6 +96,11 @@ def main() -> None:
             logger.error("トピックモードを使用する場合は --topic オプションでトピック名を指定してください")
             sys.exit(1)
         result = agent.topic_report(topic=args.topic, create_issue=create_issue, news_count=args.news_count)
+    elif args.mode == "topic-survey":
+        if not args.topic:
+            logger.error("トピックサーベイモードを使用する場合は --topic オプションでトピック名を指定してください")
+            sys.exit(1)
+        result = agent.topic_survey_report(topic=args.topic, create_issue=create_issue, news_count=args.news_count or settings.news_count_topic_survey_report)
     elif args.mode == "test":
         result = agent.run_catchup(create_issue=create_issue, news_count=args.news_count, test_mode=True)
     else:

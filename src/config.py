@@ -34,6 +34,7 @@ class Settings(BaseSettings):
     news_count_weekly_report: int = int(os.getenv("NEWS_COUNT_WEEKLY_REPORT", "5"))
     news_count_monthly_report: int = int(os.getenv("NEWS_COUNT_MONTHLY_REPORT", "10"))
     news_count_test_report: int = int(os.getenv("NEWS_COUNT_TEST_REPORT", "1"))
+    news_count_topic_survey_report: int = int(os.getenv("NEWS_COUNT_TOPIC_SURVEY_REPORT", "20"))
 
     model_config = {"env_file": ".env", "extra": "ignore"}
 

@@ -5,6 +5,7 @@
 [![Weekly Report](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/weekly-report.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/weekly-report.yml)
 [![Monthly Report](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/monthly-report.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/monthly-report.yml)
 [![Topic Report](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/topic-report.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/topic-report.yml)
+[![Topic Survey Report](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/topic-survey-report.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/topic-survey-report.yml)
 [![Claude](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/claude.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/claude.yml)
 [![Gemini CLI](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/gemini.yml/badge.svg)](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/gemini.yml)
 
@@ -42,6 +43,8 @@
     - [📈 月次レポートのワークフロー](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/monthly-report.yml)
     - [🎯 論文別レポートのワークフロー](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/topic-report.yml)
         - `Run workflow` をクリックして、調査したい論文名を入力してください（例: `Attention Is All You Need`）
+    - [🧭 トピック論文サーベイのワークフロー](https://github.com/Yagami360/ai-paper-catchup-agent/actions/workflows/topic-survey-report.yml)
+        - `Run workflow` をクリックして、調査したいトピック名を入力してください（例: `Vision-Language Models`）
 
 ### 💻 ローカル環境で動かす場合
 
@@ -78,6 +81,7 @@ make setup
 # NEWS_COUNT_WEEKLY_REPORT=5
 # NEWS_COUNT_MONTHLY_REPORT=10
 # NEWS_COUNT_TEST_REPORT=1
+# NEWS_COUNT_TOPIC_SURVEY=10
 ```
 
 #### 3️⃣ 実行
@@ -94,6 +98,9 @@ make run-monthly
 
 # 🎯 論文別レポート作成
 make run-topic TOPIC="Attention Is All You Need"
+
+# 🧭 トピック論文サーベイレポート作成
+make run-topic-survey TOPIC="Vision-Language Models"
 ```
 
 ### 🤖 レポート内容の質疑応答する
@@ -139,6 +146,7 @@ Issue や PR のコメントで `@gemini-cli` とメンションすると、Gemi
 | `make run-weekly` | 📊 週次レポート生成 |
 | `make run-monthly` | 📈 月次レポート生成 |
 | `make run-topic TOPIC="論文名"` | 🎯 論文別レポート生成 |
+| `make run-topic-survey TOPIC="トピック名"` | 🧭 トピック論文サーベイレポート生成 |
 | `make test` | 🧪 テストを実行 |
 | `make lint` | 🔍 コードのリンティング |
 | `make format` | ✨ コードのフォーマット |

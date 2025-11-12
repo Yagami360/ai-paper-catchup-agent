@@ -317,3 +317,64 @@ class AIPaperCatchupAgent:
         except Exception as e:
             logger.error(f"トピックレポート生成中にエラー: {e}")
             return {"status": "error", "message": str(e)}
+
+    def topic_survey_report(self, topic: str, create_issue: bool = True, news_count: Optional[int] = None) -> Dict[str, Any]:
+        """特定トピックの論文サーベイレポートを生成"""
+        logger.info(f"トピックサーベイレポート生成を開始... トピック: {topic}")
+
+        try:
+            prompt = self.prompt_manager.get_prompt(
+                "topic_survey_report",
+                enabled_mcp_servers=self.enabled_mcp_servers,
+                topic=topic,
+                news_count=str(news_count or settings.news_count_topic_survey_report),
+            )
+            if not prompt:
+                logger.error("トピックサーベイレポートプロンプトを取得できませんでした")
+                return {"status": "error", "message": "プロンプトの取得に失敗しました"}
+
+            logger.info(f"入力プロンプト: {prompt}")
+            search_result = self.ai_client.send_message(prompt)
+
+            if search_result["status"] != "success":
+                return {"status": "error", "message": search_result["message"]}
+
+            result = {
+                "status": "success",
+                "content": search_result["content"],
+                "searched_at": search_result["searched_at"],
+            }
+
+            if create_issue:
+                issue_body = f"""# 🧭 AI Paper Catchup Topic Survey Report: {topic}
+
+- レポート日時: `{datetime.now().strftime("%Y-%m-%d %H:%M")}`
+- 使用モデル: `{self.model_name}`
+- トピック: `{topic}`
+
+> **💡 質疑応答について**
+> このレポート内容について質問したい場合は、コメントで `@claude` または `@gemini-cli` とメンションすると、AI が自動的に回答します。
+
+---
+
+{search_result["content"]}
+
+---
+
+*このレポートは AI Paper Catchup Agent によって自動生成されました。*
+"""
+                issue_result = self.github_client.create_issue(
+                    title=f"🧭 AI Paper Catchup Topic Survey Report: {topic} - {datetime.now().strftime('%Y-%m-%d')}",
+                    body=issue_body,
+                    labels=["topic-survey-report", self.model_name],
+                )
+                if issue_result.get("html_url"):
+                    result["issue_url"] = issue_result.get("html_url", "")
+            else:
+                logger.info("GitHub Issue作成をスキップしました")
+
+            return result
+
+        except Exception as e:
+            logger.error(f"トピックサーベイレポート生成中にエラー: {e}")
+            return {"status": "error", "message": str(e)}
